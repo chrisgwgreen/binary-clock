@@ -1,0 +1,15 @@
+
+# Editors
+.pioenvs
+.vscode
+.pio
+
+# Node
+node_modules
+
+# README
+test/README
+lib/README
+
+# MISC
+.DS_Store

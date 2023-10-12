@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="dist/iro.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="demoWheel"></div>
+    <script type="text/javascript">
+
+      var r = 100;
+      var g = 150;
+      var b = 150;
+      var iT = 1000;
+      var iP = 1000;
+      var eT = 1000;
+      var eP = 1000;
+      
+      var p = new iro.ColorPicker("#demoWheel", {
+        width: 360,
+        height: 360,
+        markerRadius: 8,
+        color: {r: r, g: g, b: b},
+        borderWidth: 2,
+        padding: 4,
+        anticlockwise: true,
+        css: {
+          body: {
+            "background-color": "$color",
+            "color": "$color"
+          },
+          ".test": {
+            "border-color": "$color",
+            "color": "$color"
+          }
+        }
+      });
+      
+      var cT = null;
+      p.on("color:change", function(color, changes) {
+        clearTimeout(cT);
+        r = color.rgb.r;
+        g = color.rgb.g;
+        b = color.rgb.b;
+        cT = setTimeout(update, 500);  
+      });
+
+      function update() {
+        console.log('UPDATE')
+      }
+
+    </script>
+  </body>
+</html>
